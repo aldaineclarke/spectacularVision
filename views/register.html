@@ -1,0 +1,55 @@
+<section class="login-page">
+
+    <form name="loginForm" class="loginForm register" novalidate ng-submit="addUser(user)">
+        <div class="formContainer">
+            <h1>Create an Account</h1>
+            <div class="form-control">
+                <label>
+                    <span class="error-container">
+                        <span class="error" ng-show="loginForm.firstName.$error.required && loginForm.firstName.$dirty">Field should not be empty</span>
+                    </span>
+                    <input type="text" name="firstName" placeholder="First Name" ng-model="user.fname" ng-required="true">
+                </label>
+                <label>
+                    <span class="error-container">
+                        <span class="error" ng-show="loginForm.lastName.$error.required && loginForm.lastName.$dirty">Field should not be empty</span>
+                    </span>
+                    <input type="text" name="lastName" placeholder="Last Name" ng-model="user.lname" ng-required="true">
+                </label>
+            </div>
+            
+            <label>
+                <span class="error-container">
+                    <span class="error" ng-show="loginForm.username.$error.required && loginForm.username.$dirty">Field should not be empty</span>
+                </span>
+                <input type="text" name="username" placeholder="Username" ng-model="user.username" ng-required="true">
+            </label>
+            <label>
+                <span class="error-container">
+                    <span class="error" ng-show="loginForm.email.$error.required && loginForm.email.$dirty">Field should not be empty</span>
+                    <span class="error" ng-show="loginForm.email.$error.email && loginForm.email.$dirty">Email is invalid</span>
+                </span>
+                
+                <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
+            </label>
+        
+            <label>
+                <span class="error-container">
+                    <span class="error" ng-show="loginForm.password.$error.required && loginForm.password.$dirty">Field should not be empty</span>
+                </span>
+                <input type="password" name="password" placeholder="Password" ng-model="user.password" required>
+            </label>
+            <label>
+                <span class="error-container">
+                    <span class="error" ng-show="loginForm.password2.$error.required && loginForm.password2.$dirty">Field should not be empty</span>
+                    <span class="error" ng-show="user.password2 != user.password && loginForm.password2.$dirty && loginForm.password2.$touched">Passwords do not match</span>
+                </span>
+                <input type="password" name="password2" placeholder="Confirm Password" ng-model="user.password2" required>
+            </label>
+            <button class="btn btn--primary" type="submit" ng-disabled="loginForm.$invalid && loginForm.$pristine || loginForm.$invalid && loginForm.$dirty || user.password2 != user.password ">Register</button>
+            <div>
+                <p>Already have an Account? <a href="/login">Login</a></p>
+            </div>
+        </div>
+    </form>
+</section>

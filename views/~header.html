@@ -1,0 +1,28 @@
+<nav>
+    <ul class="nav">
+        <li class="nav__item"><a href="/" class="nav__link logo"><img src="images/Spectacular.png" alt="Logo of the website"></a></li>
+
+        
+            <li class="nav__item"><a href="/products" class="nav__link">Products</a></li>
+        <li class="nav__item right" ng-show="userObj" ><a href="/cart" class="nav__link">
+            <div class="cart">
+                <span>Cart</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <span class="badge" ng-show="cartObj.cart.length > 0">{{cartObj.cart.length}}</span>
+                </div>
+        </a></li>  
+       
+        <li class="nav__item right" ng-hide="userObj" ><a href="/login" class="nav__link" >Login</a></li>
+        <li class="nav__item"  ng-hide="userObj"><a href="/register" class="nav__link btn btn--primary">Sign Up</a></li>
+        <li ng-show="userObj"><a href="/login" style="text-decoration: none;">{{userObj.username}}</a></li>
+    </ul>
+</nav>
+
+<form class="search-form" ng-submit="getQuery()">
+    <input type="text" class="searchbar" name="searchbar" placeholder="Search Our Products.." ng-model="searchQuery">
+    <br>
+    <input type="submit" value="Search Products" class="btn btn--primary">
+</form>
+

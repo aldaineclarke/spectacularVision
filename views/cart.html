@@ -1,0 +1,21 @@
+<section>
+    <div class="content">
+        <div class="cart-page">
+            <div class="cart-item" ng-repeat="item in cartObj.cart  track by $index">
+                <img ng-src="{{item.product.image}}" alt="This is an image of {{item.product.name}}">
+                <div class="detail">
+                    <p class="bold">{{item.product.name}}</p>
+                    <p>Qty: <input type="number" name="qty" ng-model="item.quantity" ng-change="cartObj.updateCart($index)"></p>
+                    <p>{{item.product.price | currency : '₹'}}</p>
+                    <button ng-click="cartObj.removeItem($index)" >Remove</button>
+    
+                </div>
+            </div>
+            <div class="cart-total">
+                <p class="bold"> Total: {{cartObj.total | currency : '₹'}}</p>
+                <button class="btn btn--primary">Proceed to Checkout</button>
+            </div>
+            
+        </div>
+    </div>
+</section>

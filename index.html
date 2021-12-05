@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="glassShop">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <base href="/">
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <title>Spectaclular Visions</title>
+
+</head>
+<body ng-controller="mainController">
+    <header ng-include="'views/~header.html'"></header>
+    <!-- <header>
+        <nav>
+            <ul class="nav">
+                <li class="nav__item"><a href="/" class="nav__link logo"><img src="images/spectacularVisionLogo.png" alt="Logo of the website"></a></li>
+                <li class="nav__item"><a href="#!/products/" class="nav__link">Products</a></li>
+                <li class="nav__item" ><a href="#" class="nav__link">
+                    <div class="cart">
+                        <span>Cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                    </div>
+                </a></li>
+                <li class="nav__item right"><a href="#" class="nav__link">Login</a></li>
+                <li class="nav__item"><a href="#" class="nav__link btn btn--primary">Signup</a></li>
+            </ul>
+        </nav> 
+    
+        <form class="search-form">
+            <input type="text" class="searchbar" name="searchbar" placeholder="Search Our Products.." ng-model="searchQuery">
+            <br>
+            <input type="button" ng-click ="getQuery()" value="Search Products" class="btn btn--primary">
+        </form>
+    </header>-->
+    <main ng-view >
+
+    </main>
+    <footer ng-include ="'views/~footer.html'"></footer>
+    <script src="app.module.js"></script>
+    <script src="services/cart.service.js"></script>
+    <script src="services/user.service.js"></script>
+    <script src="services/utils.service.js"></script>
+    <script src="productList/productList.module.js"> </script>
+    <script src="productList/productList.component.js"> </script>
+
+</body>
+</html>

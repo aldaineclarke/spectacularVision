@@ -1,0 +1,31 @@
+
+<section>
+    <div class="content">
+        <br>
+        <div class="no-match" ng-show=" fltrProducts.length == 0">
+            <p>No products found</p>
+            <img src="/images/not found.png" alt="Image showing that there are no matches found">
+        </div>
+        <select ng-model="order" ng-init="order = 'name'" ng-hide="fltrProducts.length == 0" class="sortBy">
+            <option value="name">Alphabetically</option>
+            <option value="rating">Popularity</option>
+            <option value="price">Lowest Price to highest</option>
+        </select>
+        <div class="products">
+            <article class="product" ng-repeat="product in $ctrl.products | orderBy: order | filter : $ctrl.search as fltrProducts track by $index">
+
+                <main class="image">
+                    <img ng-src='{{product.image}}' alt="This is an image of a {{product.image}}">
+                </main>
+                <footer>
+                    <p class="product__name">{{product.name}}</p>
+                    <p class="product__price">{{product.price | currency: '₹'}}</p>
+                    <button class="btn btn--primary" ng-click="$ctrl.addCart({product: product});">Add to cart</button>
+                </footer>
+    
+            </article>
+           
+            
+        </div>
+    </div>
+</section>
